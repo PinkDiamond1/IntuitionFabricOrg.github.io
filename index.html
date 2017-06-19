@@ -11,6 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/flipclock.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="assets/js/flipclock.js"></script>	
+
 
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -61,8 +65,8 @@
 							  <li><a href="https://gum.co/wxLP" class="button">Read the Whitepaper</a></li>
 							  <li><a href="#" class="button">Try the Demo</a></li>
 							</ul>
+							
 						</header>
-						
 					</div>
 					<a href="#one" class="goto-next scrolly">Next</a>
 				</section>
@@ -252,6 +256,30 @@
 						</div>
 						<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
+						<div class="clock" style="margin:2em;"></div>
+
+						<script type="text/javascript">
+							var clock;
+
+							$(document).ready(function() {
+
+								// Grab the current date
+								var currentDate = new Date();
+
+								// Set some date in the future. In this case, it's always Jan 1
+								var futureDate  = new Date(currentDate.getFullYear() + 1, 0, 1);
+
+								// Calculate the difference in seconds between the future and current date
+								var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+								// Instantiate a coutdown FlipClock
+								clock = $('.clock').FlipClock(diff, {
+									clockFace: 'DailyCounter',
+									countdown: true
+								});
+							});
+						</script>
+
 					</div>
 				</section>
 
